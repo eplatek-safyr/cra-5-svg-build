@@ -1,0 +1,19 @@
+name: test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy_job:
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    steps:
+      - name: debug info
+        run: npx create-react-app --info
+      - uses: actions/checkout@v2
+      - name: install dependencies
+        run: yarn
+      - name: build
+        run: yarn build
